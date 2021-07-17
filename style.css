@@ -1,0 +1,47 @@
+/** Color variables **/
+:root {
+    --green: hsla(98, 52%, 55%, 1);
+    --purple: hsla(320, 91%, 35%, 1);
+    --khaki: hsla(62, 51%, 69%, 1);
+    --blue: hsla(198, 52%, 63%, 1);
+    --orange: hsla(8, 75%, 65%, 1);
+}
+
+body {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    background-color: var(--khaki);
+}
+
+
+.main {
+    padding: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-board {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid green;
+}
+
+.main-board-row {
+    display: flex;
+    flex-direction:row;
+}
+
+.main-board-cell {
+    width:2rem;
+    aspect-ratio: 1/1;
+    border: 1px solid red
+}
+
+.main-pieces {
+    width:40%;
+    border: 1px solid black;
+}
