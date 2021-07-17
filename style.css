@@ -24,10 +24,11 @@ body {
 }
 
 .main-board {
+    padding: 1rem;
     display:flex;
     flex-direction: column;
     flex-wrap: wrap;
-    border: 1px solid green;
+    border: 1px solid black;
 }
 
 .main-board-row {
@@ -38,7 +39,7 @@ body {
 .main-board-cell {
     width:2rem;
     aspect-ratio: 1/1;
-    border: 1px solid red
+    border: 1px solid rgb(39, 39, 39)
 }
 
 .main-pieces {
