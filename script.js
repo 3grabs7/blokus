@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const boardDimension = 20
-    console.log('heheheh')
     // create cells for game board
+    const boardDimension = 20
+
     const gameBoard = document.querySelector('.main-board')
     for (let i = 0; i < boardDimension; i++) {
         const row = document.createElement('div')
@@ -13,8 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cell.setAttribute('col', j+1)
             row.appendChild(cell)
         }
-        gameBoard.appendChild(row)
-        
+        gameBoard.appendChild(row)    
     }
 
+    // display pieces
+    for(const dimension in pieces) {
+        console.log(pieces[dimension])
+    }
 })
