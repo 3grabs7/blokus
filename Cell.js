@@ -1,9 +1,9 @@
 class Cell {
-    constructor(col, row) {
+    constructor(col, row, element) {
         this.col = col
         this.row = row
         this.occupiedBy = null
-        this.element = document.querySelector('') // add reference to dom element
+        this.element = element
     }
 
     occupy(color) {
@@ -18,3 +18,6 @@ class Cell {
         return this.occupiedBy === null
     }
 }
+
+// keep all cells from game board here for now
+let cellCollection = []
