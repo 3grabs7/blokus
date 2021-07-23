@@ -4,6 +4,8 @@ class Cell {
         this.row = row
         this.occupiedBy = null
         this.element = element
+        this.xPosition = 0
+        this.yPosition = 0
     }
 
     occupy(color) {
@@ -16,6 +18,10 @@ class Cell {
 
     isEmpty() {
         return this.occupiedBy === null
+    }
+
+    updateScreenSize() {
+
     }
 }
 

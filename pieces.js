@@ -1,3 +1,5 @@
+let currentPiece = null;
+
 // display pieces
 function loadPieces(color) {
   const piecesDiv = document.querySelector(".main-side-pieces");
@@ -30,6 +32,41 @@ function loadPieces(color) {
           }
           pieceElement.appendChild(pieceRowElement);
         }
+
+        // Add mouse drag event
+        pieceElement.onmousedown = function(event) {
+          // (1) prepare to moving: make absolute and on top by z-index
+          pieceElement.style.position = 'absolute';
+          pieceElement.style.zIndex = 1000;
+        
+          // move it out of any current parents directly into body
+          // to make it positioned relative to the body
+          document.body.append(pieceElement);
+        
+          // centers the ball at (pageX, pageY) coordinates
+          function moveAt(pageX, pageY) {
+            pieceElement.style.left = pageX - pieceElement.offsetWidth / 2 + 'px';
+            pieceElement.style.top = pageY - pieceElement.offsetHeight / 2 + 'px';
+          }
+        
+          // move our absolutely positioned ball under the pointer
+          moveAt(event.pageX, event.pageY);
+        
+          function onMouseMove(event) {
+            moveAt(event.pageX, event.pageY);
+          }
+        
+          // (2) move the ball on mousemove
+          document.addEventListener('mousemove', onMouseMove);
+        
+          // (3) drop the ball, remove unneeded handlers
+          pieceElement.onmouseup = function() {
+            document.removeEventListener('mousemove', onMouseMove);
+            pieceElement.onmouseup = null;
+          };
+        
+        };
+
         piecesDiv.appendChild(pieceElement);
       } else {
         const pieceRowElement = document.createElement("div");
@@ -46,6 +83,9 @@ function loadPieces(color) {
           }
         }
         pieceElement.appendChild(pieceRowElement);
+
+        // Add mouse drag event
+
         piecesDiv.appendChild(pieceElement);
       }
     }
